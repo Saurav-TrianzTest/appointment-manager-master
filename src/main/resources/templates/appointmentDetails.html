@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</head>
+<header>
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" href="">Appointment Details</a>
+
+        <ul class="nav justify-content-end ">
+            <li class="nav-item ">
+                <a class="nav-link active " href="/list">
+                    <p class="text-white">Home</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/new">
+                    <p class="text-white">New</p>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<br>
+<br>
+
+<body>
+
+    <div th:each="appointment: ${appointment}" class="container-sm">
+        <span class="border border-dark">
+            <p>Name: <i><b><span th:text="${appointment.nameAppointment}"></span></b></i></p>
+            <p>Location: <i><b><span th:text="${appointment.local}"></span></b></i></p>
+            <p>Date: <i><b><span th:text="${appointment.date}"></span></b></i></p>
+            <p>Time: <i><b><span th:text="${appointment.time}"></span></b></i></p>
+        </span>
+    </div>
+    <br>
+   
+    <form method=post class="container">        
+        <h4>Add Invitees</h4>
+        <br>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Name</span>
+            </div>
+            <input class="form-control" type="text" id="example-text-input" name="invitedName">
+        </div>
+        </div>
+        <br>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Telephone</span>
+            </div>
+            <input class="form-control" type="tel" id="example-tel-input" name="cellNumber">
+        </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+    <br>
+    <br>
+    <table class=" container table table-hover">
+        <h4 class="container">Invitees List</h4>
+        <th:block th:include="validationMessage" class="alert alert-danger" role="alert"></th:block>
+        <thead>
+            <th>Name</th>
+            <th>Telephone</th>
+            <th>Remove</th>
+        </thead>
+        <tbody>
+            <tr th:each="invited: ${inviteds}">
+                <td><span th:text="${invited.invitedName}"></span></td>
+                <td><span th:text="${invited.cellNumber}"></span></td>
+                <td><a th:href="@{remove/{id}(id=${invited.id})}"><i class="material-icons left">remove</i></a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+</body>
+
+</html>

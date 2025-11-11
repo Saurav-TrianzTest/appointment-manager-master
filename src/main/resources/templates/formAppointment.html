@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-primary">
+            <a class="navbar-brand" href="">New Appointment</a>
+
+            <ul class="nav justify-content-end ">
+                <li class="nav-item ">
+                    <a class="nav-link active " href="/list">
+                        <p class="text-white">Home</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/new">
+                        <p class="text-white">New</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+        <th:block th:include="validationMessage" class="alert alert-danger" role="alert"></th:block>
+        
+    
+    <br>
+    <br>
+    <form method="post" class="container">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Name</span>
+            </div>
+            <input class="form-control" type="text" name="nameAppointment">
+        </div>
+        <br>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Locale</span>
+            </div>
+            <input class="form-control" type="text" name="local">
+        </div>
+        <br>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Date</span>
+            </div>
+            <input class="form-control" type="date" name="date">
+        </div>
+        <br>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Time</span>
+            </div>
+            <input class="form-control" type="time" name="time">
+        </div>
+        <br>
+        <button class="btn btn-primary" type="submit">Add</button>
+    </form>
+</body>
+
+</html>

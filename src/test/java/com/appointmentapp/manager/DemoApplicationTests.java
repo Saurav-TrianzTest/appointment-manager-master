@@ -1,4 +1,4 @@
-package com.apointmentapp.manager;
+package com.appointmentapp.manager;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

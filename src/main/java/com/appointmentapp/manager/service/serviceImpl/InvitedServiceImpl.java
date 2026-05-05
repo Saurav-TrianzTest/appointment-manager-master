@@ -22,7 +22,7 @@ public class InvitedServiceImpl implements InvitedService {
 
     @Override
     public Invited findById(long id) {
-        return repository.findById(id).get();
+        return repository.findById(id).orElse(null);
     }
 
     @Override

@@ -2,13 +2,14 @@ package com.appointmentapp.manager.models;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 
 @Entity
@@ -28,7 +29,7 @@ public class Appointment {
     @NotBlank
     private String time;
 
-    @OneToMany
+    @OneToMany(mappedBy = "appointment", cascade = CascadeType.ALL)
     private List<Invited> inited;
 
 
